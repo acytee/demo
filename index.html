@@ -1,0 +1,228 @@
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://ms.bdstatic.com/se/static/@baidu/cosmic/tokens_79661e3f.css">
+<style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; min-height: 100%; height: auto;  overflow-x: hidden; overflow-y: auto; }
+</style>
+</head>
+<body><style>
+    .vc-info-wrapper {
+        width: 100%;
+    }
+    .vc-info-container {
+        background: var(--cos-color-bg-dent, #F7F8FC);
+        border-radius: var(--cos-rounded-sm, 9px);
+        border: 0.5px solid #EDEEF0;
+        max-height: 1200px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .vc-info-header {
+        height: 43px;
+        padding: 15px 15px 12px;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+        color: var(--cos-color-text-minor, #5f6570);
+        background-color: var(--cos-vcard-color-bg, #F7F8FC);
+        border-bottom: 1px solid var(--cos-color-border-minor, rgba(31, 35, 40, 0.12));
+        border-radius: var(--cos-rounded-sm, 9px) var(--cos-rounded-sm, 9px) 0 0;
+    }
+    .vc-info-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        max-height: calc(1200px - 43px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 20px;
+        line-height: normal;
+        font-family: var(--font-sans, PingFang SC, Microsoft YaHei, Noto Sans CJK SC, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif);
+        color: var(--color-text-primary, #1f2328);
+        --font-sans: PingFang SC, Microsoft YaHei, Noto Sans CJK SC, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif;
+        --font-mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+        --color-background-primary: var(--cos-vcard-color-bg, #F7F8FC);
+        --color-background-secondary: var(--cos-color-bg-dent, #F7F8FC);
+        --color-background-tertiary: var(--cos-color-bg-dent, #eef1f4);
+        --color-text-primary: var(--cos-color-text, #1f2328);
+        --color-text-secondary: var(--cos-color-text-minor, #5f6570);
+        --color-text-tertiary: var(--cos-color-text-minor, #7d8490);
+        --color-border-tertiary: var(--cos-color-border-minor, #EDEEF0);
+        --color-border-secondary: var(--cos-color-border-minor, #EDEEF0);
+        --color-border-primary: var(--cos-color-border-minor, #EDEEF0);
+        --border-radius-md: 8px;
+        --border-radius-lg: var(--cos-rounded-sm, 9px);
+        --border-radius-xl: 16px;
+    }
+    .vc-info-content canvas {
+        max-width: 100%;
+    }
+    .vc-info-content .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    .vc-info-content > .genui-root {
+        margin-top: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        border-top-width: 0 !important;
+    }
+    .c-darkmode .vc-info-container,
+    .darkmode .vc-info-container,
+    .cos-dark .vc-info-container {
+        border: 0.5px solid #EDEEF0;
+    }
+    @media (prefers-color-scheme: dark) {
+        .vc-info-container {
+            border: 0.5px solid #EDEEF0;
+        }
+        .vc-info-content {
+            --color-background-primary: var(--cos-vcard-color-bg, #151719);
+            --color-background-secondary: var(--cos-color-bg-dent, #202326);
+            --color-background-tertiary: var(--cos-color-bg-dent, #2a2e32);
+            --color-text-primary: var(--cos-color-text, #f1f3f5);
+            --color-text-secondary: var(--cos-color-text-minor, #c0c5cc);
+            --color-text-tertiary: var(--cos-color-text-minor, #9aa1aa);
+            --color-border-tertiary: var(--cos-color-border-minor, rgba(255, 255, 255, 0.14));
+            --color-border-secondary: var(--cos-color-border-minor, rgba(255, 255, 255, 0.22));
+            --color-border-primary: var(--cos-color-border-minor, rgba(255, 255, 255, 0.3));
+        }
+    }
+
+    /* 自定义样式 1:1复刻标签形状 */
+    .genui-root .charging-card {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+      padding: 70px 28px 28px;
+    }
+    .genui-root .corner-tag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 28px;
+      color: white;
+      font-size: 30px;
+      font-weight: 700;
+      /* 关键：三个外凸圆角，左下角直角，完美匹配截图形状 */
+      border-radius: 28px 0 28px 0;
+      /* 从左上深青到右下浅青渐变，和原图渐变方向完全一致 */
+      background: linear-gradient(125deg, #03b0bc 0%, #38cad7 100%);
+    }
+    .genui-root .top-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #38cad7 0%, #83e3eb 50%, transparent 100%);
+    }
+    .genui-root .left-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #38cad7 0%, #83e3eb 50%, transparent 100%);
+    }
+    .genui-root h1 {
+      font-size: clamp(26px, 4.5vw, 44px);
+      font-weight: bold;
+      color: #1f2328;
+      margin-bottom: 22px;
+    }
+    .genui-root .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .genui-root .tag-item {
+      padding: 10px 20px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      color: #5f6570;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .genui-root .price {
+      font-size: clamp(36px, 7vw, 58px);
+      font-weight: bold;
+      color: #03b0bc;
+    }
+    .genui-root .price .symbol {
+      font-size: 20px;
+      vertical-align: top;
+    }
+    .genui-root .price .unit {
+      font-size: 26px;
+      font-weight: normal;
+    }
+</style>
+
+<div class="vc-info-wrapper">
+    <div class="vc-info-container" data-genui-template="html-card-v2">
+        <div class="vc-info-header">闪充标签1:1复刻</div>
+        <div class="vc-info-content">
+          <div class="genui-root">
+            <div class="charging-card">
+              <div class="top-border"></div>
+              <div class="left-border"></div>
+              <div class="corner-tag">闪充</div>
+
+              <h1>闪充(重庆两江绿园公园)充电站</h1>
+              <div class="tag-group">
+                <span class="tag-item">闪充车专属</span>
+                <span class="tag-item">权益可用</span>
+                <span class="tag-item">证照 <span style="font-size:22px">›</span></span>
+              </div>
+              <div class="price">
+                <span class="symbol">¥</span>1.41<span class="unit">/度起</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    var script = document.currentScript;
+    var wrapper = script && script.previousElementSibling;
+    var rootDom = wrapper && wrapper.querySelector('.vc-info-container');
+    if (!rootDom) return;
+
+    function logAction(action, subValue) {
+        if (!rootDom) return;
+        rootDom.dispatchEvent(
+            new CustomEvent('vibe-card-action', {
+                bubbles: true,
+                detail: {
+                    action: action,
+                    sub_value: subValue,
+                    sub_source: 'infographic',
+                }
+            })
+        );
+    }
+    rootDom.addEventListener('click', function () {
+        logAction('click', 'infographic');
+    });
+})();
+</script>
+</body></html>
